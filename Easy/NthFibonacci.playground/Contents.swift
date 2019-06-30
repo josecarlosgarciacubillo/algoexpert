@@ -32,8 +32,7 @@ func getNthFib(_ n: Int, memoize: inout [Int: Int] = [1: 0, 2: 1]) -> Int {
 }
 */
 // Iterative -> Optimal
-// Time = O(n)
-// Space = O(1) -> We are not storing anything
+// O(n) time | O(1) space
 func getNthFib(_ n: Int) -> Int {
     var lastTwo = [0, 1]
     var counter = 3
