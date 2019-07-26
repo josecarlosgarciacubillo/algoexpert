@@ -43,23 +43,5 @@ extension String {
 }
 
 let str = "abaxyzzyxf"
-let charIndex = str.index(str.startIndex, offsetBy: 3)
-//print(str[charIndex])
 longestPalidromeSubstring(str: str)
 
-
-/*
-func longestPalidromeSubstring(str: String) -> String {
-    var currentLongest = [0, 1]
-    // We don't have to start at 0
-    for i in 1..<str.count {
-        let odd = getLongestPalindromeFrom(str, leftIndex: i - 1, rightIndex: i + 1)
-        let even = getLongestPalindromeFrom(str, leftIndex: i - 1, rightIndex: i)
-        let longest = max(odd, even)
-    }
-}
-
-func getLongestPalindromeFrom(_ str: String, leftIndex: Int, rightIndex: Int) -> [Int] {
-    
-}
-*/
