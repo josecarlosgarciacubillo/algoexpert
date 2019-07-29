@@ -10,7 +10,7 @@ func longestPalidromeSubstring(str: String) -> String {
     for i in 0..<str.count {
         for j in i..<str.count {
             let startIndex = str.index(str.startIndex, offsetBy: i)
-            let endIndex = str.index(str.startIndex, offsetBy: j)
+            let endIndex = str.index(str.startIndex, offsetBy: j + 1)
             let substring = str[startIndex...endIndex]
             print(substring)
             if substring.count > longest.count && isPalindrome(str) {

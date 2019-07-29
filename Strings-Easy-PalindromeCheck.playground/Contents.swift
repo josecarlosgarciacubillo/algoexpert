@@ -58,7 +58,6 @@ func isPalindromeRecursion(string: String, i: Int = 0) -> Bool {
     return isPalindromeRecursion(string: string, i: i + 1)
 }
 
-
 // Pointers solution (Optimal)
 // O(n) time | O(1) space
 func isPalindromePointers(string: String) -> Bool {
@@ -74,12 +73,30 @@ func isPalindromePointers(string: String) -> Bool {
     return true
 }
 
-let test = "abcdefghihgfedcba"
 
-isPalindrome(string: test)
-isPalindromeLoop(string: test)
-isPalindromeLoopChar(string: test)
-isPalindromeRecursion(string: test)
+func isP(string: String) -> Bool {
+    var leftIndex = 0
+    var rightIndex = string.count - 1
+    while leftIndex < rightIndex {
+        if string[string.index(test.startIndex, offsetBy: leftIndex)] != string[string.index(test.startIndex, offsetBy: rightIndex)] {
+            return false
+        }
+        leftIndex += 1
+        rightIndex -= 1
+    }
+    return true
+}
+
+let test = "abcdcba"
+let s = test.index(test.startIndex, offsetBy: 0)
+let e = test.index(test.startIndex, offsetBy: test.count-2)
+print(test[s])
+print(test[e])
+isP(string: test)
+//isPalindrome(string: test)
+//isPalindromeLoop(string: test)
+//isPalindromeLoopChar(string: test)
+//isPalindromeRecursion(string: test)
 isPalindromePointers(string: test)
 
 

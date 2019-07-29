@@ -1,7 +1,7 @@
-//
-//  Created by José Carlos García
-//  Mexican Dev Mafia
-//
+///
+///  Created by José Carlos García
+///  Mexican Dev Mafia
+///
 import Foundation
 
 class Node {
@@ -18,7 +18,7 @@ class Node {
         return child
     }
     
-    // O(v + e) time | O(v) space -> v = vertice, e = edge
+    /// O(v + e) time | O(v) space -> v = vertice, e = edge
     func depthFirstSearch(_ array: inout [String]) -> [String] {
         array.append(self.name)
         for child in children {
@@ -38,6 +38,7 @@ extension Node: CustomStringConvertible {
     }
 }
 
+/// Test Case
 var nodeA = Node("A")
 nodeA.addChild("B")
 nodeA.addChild("C")
@@ -54,6 +55,3 @@ print(nodeA)
 
 var array = [String]()
 nodeA.depthFirstSearch(&array)
-
-
-

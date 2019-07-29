@@ -13,7 +13,7 @@ class BST {
         self.value = value
     }
 }
-
+/*
 func findClosestValueInBst(tree: BST, target: Int) -> Int {
     return findClosestValueInBstHelper(tree: tree, target: target, closest: &tree.value)
 }
@@ -33,7 +33,42 @@ func findClosestValueInBstHelper(tree: BST, target: Int, closest: inout Int) -> 
         return closest
     }
 }
+*/
 
+func findClosestValueInBst(tree: BST, target: Int) -> Int {
+    return findClosestValueInBstHelper(tree: tree, target: target, closest: Int.max)
+}
+
+func findClosestValueInBstHelper(tree: BST, target: Int, closest: Int) -> Int {
+    var closest = closest
+    var currentNode: BST? = tree
+    while currentNode != nil {
+        if target - closest > target - currentNode!.value {
+            closest = currentNode!.value
+        }
+        if target < currentNode!.value {
+            currentNode = currentNode?.left
+        } else if target > currentNode!.value {
+            currentNode = currentNode?.right
+        } else {
+            break
+        }
+    }
+    return closest
+}
+/*
+func findClosestValueInBst(tree: BST, target: Int) -> Int {
+    var currentNode: BST? = tree
+    while currentNode != nil {
+        if target > currentNode!.value {
+            currentNode = currentNode!.right!
+        } else {
+            currentNode = currentNode!.left!
+        }
+    }
+    return currentNode!.value
+}
+*/
 var bst = BST(value: 10)
 var node5 = BST(value: 5)
 var node15 = BST(value: 15)
@@ -47,6 +82,8 @@ node15.left = node13
 node15.right = node22
 node13.right = node14
 
+findClosestValueInBst(tree: bst, target: 12)
+
 /*
 bst.left?.value = 5
 bst.right?.value = 15
@@ -55,4 +92,4 @@ bst.right?.right?.value = 22
 bst.right?.left?.right?.value = 14
 */
 
-findClosestValueInBst(tree: bst, target: 12)
+//findClosestValueInBst(tree: bst, target: 12)

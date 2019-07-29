@@ -1,11 +1,11 @@
-//
-//  Created by José Carlos García
-//  Mexican Dev Mafia
-//
+///
+///  Created by José Carlos García
+///  Mexican Dev Mafia
+///
 import Foundation
 
-// Swifty Method
-// O(n^2) time -> because sorting | O(1) space
+/// Swifty Method
+/// O(n^2) time -> because sorting | O(1) space
 func findThreeLargestNumbers(in array: inout [Int]) -> [Int] {
     if array.count == 3 { return array.sorted() }
     array = array.sorted()
@@ -14,7 +14,7 @@ func findThreeLargestNumbers(in array: inout [Int]) -> [Int] {
     return array
 }
 
-// O(n) time | O(1) space
+/// O(n) time | O(1) space
 func findThreeLargestNumbersX(in array: inout [Int]) -> [Int] {
     if array.count == 3 { return array.sorted() }
     var threeLargest = Array(repeating: Int.min, count: 3)
@@ -41,6 +41,18 @@ func shiftAndUpdate(_ array: inout [Int], _ num: Int, _ index: Int) {
         } else {
             array[i] = array[i + 1]
         }
+    }
+}
+
+func swap(_ array: inout [Int], _ num: Int, _ index: Int) {
+    if index == 0 {
+        array[0] = num
+    } else if index == 1 {
+        array[0] = array[1]
+        array[1] = num
+    } else {
+        array[3] = num
+        
     }
 }
 
