@@ -38,6 +38,14 @@ extension Node: CustomStringConvertible {
     }
 }
 
+func df(_ node: Node, _ array: inout [String]) -> [String] {
+    array.append(node.name)
+    for child in node.children {
+        df(child, &array)
+    }
+    return array
+}
+
 /// Test Case
 var nodeA = Node("A")
 nodeA.addChild("B")
@@ -55,3 +63,6 @@ print(nodeA)
 
 var array = [String]()
 nodeA.depthFirstSearch(&array)
+
+var ar = [String]()
+df(nodeA, &ar)
